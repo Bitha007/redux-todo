@@ -2,10 +2,9 @@ import React from "react";
 import Todo from "./Todo";
 
 function TodoList({ todos, toggleTodo }) {
-  // console.log(todos);
   return (
     <div>
-      {todos.length !== 0
+      {todos.length !== 0 || todos.length === undefined
         ? todos.map(todo => {
             return (
               <Todo

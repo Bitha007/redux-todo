@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { addTodo } from "../actions";
 
-function AddTodo({ addTodo }) {
+function AddTodo({ dispatch }) {
   const [text, setText] = useState("");
   function handleText(text) {
     setText(text);
@@ -15,7 +17,7 @@ function AddTodo({ addTodo }) {
       />
       <button
         onClick={() => {
-          addTodo(text);
+          dispatch(addTodo(text));
           setText("");
         }}
       >
@@ -25,4 +27,4 @@ function AddTodo({ addTodo }) {
   );
 }
 
-export default AddTodo;
+export default connect()(AddTodo);
